@@ -8,7 +8,7 @@ import {createAppContainer} from 'react-navigation'
 import {createBottomTabNavigator} from 'react-navigation-tabs'
 import {createStackNavigator} from 'react-navigation-stack'
 
-import Home from './screens/Home'
+import Category from './screens/Category'
 import Settings from './screens/Settings'
 import Lojas from './screens/Lojas'
 import Services from './screens/Services'
@@ -16,18 +16,12 @@ import Services from './screens/Services'
 const CategoryStack = createStackNavigator(
   {
     Home: {
-      screen: Home,
+      screen: Category,
     }
   },
   {
     defaultNavigationOptions: {
-      
-      // headerStyle: {
-      //   backgroundColor: "#42f44b"
-      // },
-      //   headerTintColor: '#ffffff',
-      //   title: 'Categorias',
-        header: null,
+        headerShown: false,
       
     }
   }
@@ -41,12 +35,8 @@ const LojasStack = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-    //   headerStyle: {
-    //     backgroundColor: "#42f44b"
-    //   },
-    //   headerTintColor: '#ffffff',
-    //   title: 'Configurações',
-      header: null,
+    
+      headerShown: false,
     }
   }
 )
@@ -60,12 +50,8 @@ const ServicesStack = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-    //   headerStyle: {
-    //     backgroundColor: "#42f44b"
-    //   },
-    //   headerTintColor: '#ffffff',
-    //   title: 'Configurações',
-      header: null,
+    
+      headerShown: false,
     }
   }
 )
@@ -83,7 +69,7 @@ const SettingsStack = createStackNavigator(
     //   },
     //   headerTintColor: '#ffffff',
     //  title: 'Configurações',
-      header: null,
+      headerShown: false,
       
     }
   }
