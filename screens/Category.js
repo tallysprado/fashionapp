@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import {View, FlatList, ImageBackground } from 'react-native'
+import {View, FlatList, ImageBackground, Text } from 'react-native'
 
+import {BlurView} from 'expo-blur'
 
 //doesnt work
 //import {data} from '../constants/'
@@ -24,7 +25,20 @@ const Category = () => {
                     }} 
                     source={item.img}>
 
-                    
+                    <BlurView 
+                        style={{
+                            width: '100%',
+                            height: 15,
+                            position: 'absolute',
+                            bottom: 0,
+                        }}
+                        tint='light'
+                        intensity={50}
+
+                        
+                    >
+                        <Text> TESTE </Text>
+                    </BlurView>
                     
                 </ImageBackground>
             </View>

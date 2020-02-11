@@ -2,7 +2,7 @@ const data = [
     {
         key: 1,
         img: require("../assets/praia.png"),
-
+        
     },
 
     {
