@@ -13,15 +13,25 @@ import Settings from './screens/Settings'
 import Lojas from './screens/Lojas'
 import Services from './screens/Services'
 
+import Header from './components/Header'
+
+
 const CategoryStack = createStackNavigator(
   {
     Home: {
       screen: Category,
-    }
+    },
+    
   },
   {
     defaultNavigationOptions: {
-        headerShown: false,
+      headerTitle: 'Categorias',
+      headerTitleStyle: {
+        fontWeight: '600'
+      }, 
+      headerTintColor: '#000',
+      headerShown: true,
+        
       
     }
   }

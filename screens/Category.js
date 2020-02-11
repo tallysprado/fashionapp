@@ -32,7 +32,6 @@ const Category = () => {
 
     return(
         <View>
-        
             <FlatList 
                 data={dataState}
                 style={styles.flatList}
@@ -76,8 +75,9 @@ const styles = StyleSheet.create({
         fontWeight: '600',
     },
     flatList: {
-        marginLeft: -5,
-        marginRight: -5,
-        marginTop: -5,
+        marginLeft: 1,
+        marginRight: 1,
+        marginTop: 1,
+        backgroundColor: '#f1f1f1'
     },
 })
