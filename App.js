@@ -75,11 +75,6 @@ const SettingsStack = createStackNavigator(
   }
 )
 
-
-
-
-
-
 const App = createBottomTabNavigator(
   {
     Home: {
