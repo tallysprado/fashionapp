@@ -16,12 +16,20 @@ const Category = () => {
             <View style={{
                 flex: 1,
                 flexDirection: 'column',
-                margin: 1,
+                margin: 5,
+                borderRadius: 20,
+                overflow: 'hidden',
+                marginLeft: 10,
+                marginRight: 10,
+
             }}>
                 <ImageBackground style={{
                     resizeMode: "center",
                     width: "100%",
                     height: 230,
+                    
+
+                    
                     }} 
                     source={item.img}>
 
