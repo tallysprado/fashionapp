@@ -28,16 +28,30 @@ const Category = () => {
                     <BlurView 
                         style={{
                             width: '100%',
-                            height: 15,
+                            height: 40,
                             position: 'absolute',
                             bottom: 0,
+                            justifyContent: 'center',
+                            alignItems: 'center',
                         }}
-                        tint='light'
-                        intensity={50}
+                        tint='default'
+                        intensity={80}
 
                         
                     >
-                        <Text> TESTE </Text>
+                        <Text 
+                            style={{
+                                textShadowColor: 'rgba(0, 0, 0, 1)',
+                                color: '#fff',
+                                textShadowRadius: 5,
+                                textShadowOffset: {height: 1, width: 1},
+                                fontWeight: '600',
+
+                            }} 
+                        >
+                            {item.category}
+                        
+                        </Text>
                     </BlurView>
                     
                 </ImageBackground>
