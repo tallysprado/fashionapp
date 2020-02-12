@@ -1,31 +1,37 @@
 import React, {useState} from 'react'
 import {View, FlatList, ImageBackground, Text, StyleSheet } from 'react-native'
 
+
 import {BlurView} from 'expo-blur'
 
 //doesnt work
 //import {data} from '../constants/'
 
 import {data} from '../constants/mocks'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 
-const Category = () => {
+const Category = ({navigation}) => {
     const [dataState, setData] = useState(data)
     
     renderItem = ({ item }) => {
         return (
             <View style={styles.itemContainer}>
-                <ImageBackground style={styles.imageItem} source={item.img}>
+                <TouchableOpacity onPress={() =>navigation.navigate('Produto')} >
+                    {console.log(navigation)}
+                    <ImageBackground style={styles.imageItem} source={item.img}>
 
-                    <BlurView style={styles.blurView} tint='default' intensity={80}>
+                        <BlurView style={styles.blurView} tint='default' intensity={80}>
+                            
+                            <Text style={styles.text}>
+                                {item.category}
+                            </Text>
+
+                        </BlurView>
                         
-                        <Text style={styles.text}>
-                            {item.category}
-                        </Text>
-
-                    </BlurView>
-                    
-                </ImageBackground>
+                    </ImageBackground>
+                
+                </TouchableOpacity>
             </View>
         );
     };
@@ -38,6 +44,7 @@ const Category = () => {
                 renderItem={renderItem}
                 numColumns={2}
                 showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
             />
 
         </View>

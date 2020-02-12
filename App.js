@@ -21,6 +21,9 @@ const CategoryStack = createStackNavigator(
     Home: {
       screen: Category,
     },
+    Produto: {
+      screen: Lojas,
+    }
     
   },
   {
