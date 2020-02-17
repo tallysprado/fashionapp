@@ -55,6 +55,7 @@ const products = [
         img: require("../assets/blusa3.png"),
         imgs: [require("../assets/blusa3.png"), require("../assets/blusa1.png"), require("../assets/blusa2.png")],
         name: 'Calça top',
+        bio: 'Com bolinhas rosadas e cores amarelas, ela é perfeita para o verão',
     },
 
     {
@@ -62,6 +63,8 @@ const products = [
         img: require("../assets/blusa3.png"),
         imgs: [require("../assets/blusa3.png"), require("../assets/blusa1.png"), require("../assets/blusa2.png")],
         name: 'Calça Play',
+        bio: 'Com bolinhas rosadas e cores amarelas, ela é perfeita para o verão',
+
 
     },
 
@@ -70,6 +73,8 @@ const products = [
         img: require("../assets/blusa3.png"),
         imgs: [require("../assets/blusa3.png"), require("../assets/blusa1.png"), require("../assets/blusa2.png")],
         name: 'Calça Play Play Play',
+        bio: 'Com bolinhas rosadas e cores amarelas, ela é perfeita para o verão',
+
 
     },
 ]

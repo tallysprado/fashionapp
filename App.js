@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View, Platform } from 'react-native';
 
+import {AppLoading} from 'expo'
+
+import * as Font from 'expo-font'
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
@@ -96,7 +99,7 @@ const SettingsStack = createStackNavigator(
   }
 )
 
-const App = createBottomTabNavigator(
+const bottomTab = createBottomTabNavigator(
   {
     Categorias: {
       screen: CategoryStack,
@@ -147,7 +150,7 @@ const App = createBottomTabNavigator(
           <Icon name={Platform.OS === 'ios' ? 'ios-settings':'md-settings'} size={25} color={tintColor} />
         ),
         tabBarOptions: {
-          activeTintColor: '#84B72A',
+          activeTintColor: '#8e4B72A',
         }
       }
     },
@@ -161,7 +164,46 @@ const App = createBottomTabNavigator(
   }
 )
 
-export default createAppContainer(App)
+async function loadResourcesAsync() {
+  await Promise.all([
+    Font.loadAsync({
+      'PlayfairDisplay-Regular': require('./assets/fonts/PlayfairDisplay-Regular.otf'),
+      'SourceSansPro-': require('./assets/fonts/SourceSansPro-Regular.ttf'),
+      'Raleway-Bold': require('./assets/fonts/Raleway-Bold.ttf'),
+      'SourceSansPro-Light': require('./assets/fonts/SourceSansPro-Light.ttf'),
+    }),
+  ]);
+}
+
+function handleLoadingError(error) {
+  console.warn(error);
+}
+
+function handleFinishLoading(setLoadingComplete) {
+  setLoadingComplete(true);
+}
+
+export default function App(props) {
+  const [isLoadingComplete, setLoadingComplete] = useState(false);
+
+  const AppContainer = createAppContainer(bottomTab)
+
+
+  if (!isLoadingComplete && !props.skipLoadingScreen) {
+    return (
+      <AppLoading
+        startAsync={loadResourcesAsync}
+        onError={handleLoadingError}
+        onFinish={() => handleFinishLoading(setLoadingComplete)}
+      />
+    );
+  }else{
+    return(
+      <AppContainer/>
+    )
+  }
+}
+
 
 
 const styles = StyleSheet.create({
