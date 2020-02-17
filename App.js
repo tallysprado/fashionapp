@@ -23,6 +23,15 @@ import {colors} from './constants/themes'
 
 import Header from './components/Header'
 
+const SearchIcon = () => {
+  return(
+    <View style={{paddingRight: 10, position: 'absolute', hidden: 'overflow'}} >
+      
+      <Icon size={36} color={colors.category} name={Platform.OS ? 'ios-search': 'md-search'}/>
+
+    </View>
+  )
+}
 
 const CategoryStack = createStackNavigator(
   {
@@ -47,8 +56,7 @@ const CategoryStack = createStackNavigator(
       headerTintColor: colors.category,
       
       headerShown: true,
-      headerRight: <Icon size={36} contentStyle={{margin: 30, position: 'absolute', hidden: 'overflow'}} name={Platform.OS ? 'ios-search': 'md-search'}/>
-      
+      headerRight: <SearchIcon/>
     }
   }
 )
