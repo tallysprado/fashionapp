@@ -40,8 +40,9 @@ const CategoryStack = createStackNavigator(
         fontWeight: '600'
       }, 
       headerTintColor: '#000',
+      
       headerShown: true,
-      headerRight: <Text>teste</Text>
+      headerRight: <Icon size={36} contentStyle={{margin: 30, position: 'absolute', hidden: 'overflow'}} name={Platform.OS ? 'ios-search': 'md-search'}/>
       
     }
   }
@@ -170,4 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  headerIcon: {
+    right: 10,
+  }
 });
