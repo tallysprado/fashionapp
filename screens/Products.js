@@ -8,23 +8,30 @@ import {BlurView} from 'expo-blur'
 //import {data} from '../constants/'
 
 import {data} from '../constants/mocks'
+import {products} from '../constants/mocks'
+
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
 
-const Category = ({navigation}) => {
-    const [dataState, setData] = useState(data)
+const Products = ({navigation}) => {
+    const [dataState, setData] = useState(products)
     
     renderItem = ({ item }) => {
         return (
             <View style={styles.itemContainer}>
-                <TouchableOpacity onPress={() =>navigation.navigate('Itens')} >
+                <TouchableOpacity onPress={() =>navigation.navigate('Descrição', {
+                    name: item.name,
+                    images: item.imgs,
+                }
+                    
+                )} >
                     {console.log(navigation)}
                     <ImageBackground style={styles.imageItem} source={item.img}>
 
                         <BlurView style={styles.blurView} tint='default' intensity={80}>
                             
                             <Text style={styles.text}>
-                                {item.category}
+                                {item.name}
                             </Text>
 
                         </BlurView>
@@ -51,7 +58,7 @@ const Category = ({navigation}) => {
     )
 }
 
-export default Category
+export default Products
 
 const styles = StyleSheet.create({
     itemContainer: {

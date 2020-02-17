@@ -49,6 +49,33 @@ const data = [
 
 ]
 
+const products = [
+    {
+        key: 1,
+        img: require("../assets/blusa3.png"),
+        imgs: [require("../assets/blusa3.png"), require("../assets/blusa1.png"), require("../assets/blusa2.png")],
+        name: 'Calça top',
+    },
+
+    {
+        key: 2,
+        img: require("../assets/blusa3.png"),
+        imgs: [require("../assets/blusa3.png"), require("../assets/blusa1.png"), require("../assets/blusa2.png")],
+        name: 'Calça Play',
+
+    },
+
+    {
+        key: 3,
+        img: require("../assets/blusa3.png"),
+        imgs: [require("../assets/blusa3.png"), require("../assets/blusa1.png"), require("../assets/blusa2.png")],
+        name: 'Calça Play Play Play',
+
+    },
+]
+
 export {
     data,
+    products,
+    
 }

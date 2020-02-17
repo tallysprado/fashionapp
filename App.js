@@ -13,28 +13,35 @@ import Settings from './screens/Settings'
 import Lojas from './screens/Lojas'
 import Services from './screens/Services'
 
+import Products from './screens/Products'
+import Product from './screens/Product'
+
 import Header from './components/Header'
 
 
 const CategoryStack = createStackNavigator(
   {
-    Home: {
+    Categorias: {
       screen: Category,
+      
     },
-    Produto: {
-      screen: Lojas,
-    }
+    Itens: {  
+      screen: Products,
+      
+    },
+    Descrição: {
+      screen: Product,
+    },
     
   },
   {
     defaultNavigationOptions: {
-      headerTitle: 'Categorias',
       headerTitleStyle: {
         fontWeight: '600'
       }, 
       headerTintColor: '#000',
       headerShown: true,
-        
+      headerRight: <Text>teste</Text>
       
     }
   }
@@ -90,7 +97,7 @@ const SettingsStack = createStackNavigator(
 
 const App = createBottomTabNavigator(
   {
-    Home: {
+    Categorias: {
       screen: CategoryStack,
       navigationOptions: {
         tabBarLabel: 'Categorias',
