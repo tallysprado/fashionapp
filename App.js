@@ -19,6 +19,8 @@ import Services from './screens/Services'
 import Products from './screens/Products'
 import Product from './screens/Product'
 
+import {colors} from './constants/themes'
+
 import Header from './components/Header'
 
 
@@ -42,7 +44,7 @@ const CategoryStack = createStackNavigator(
       headerTitleStyle: {
         fontWeight: '600'
       }, 
-      headerTintColor: '#000',
+      headerTintColor: colors.category,
       
       headerShown: true,
       headerRight: <Icon size={36} contentStyle={{margin: 30, position: 'absolute', hidden: 'overflow'}} name={Platform.OS ? 'ios-search': 'md-search'}/>
@@ -94,6 +96,7 @@ const SettingsStack = createStackNavigator(
     //   headerTintColor: '#ffffff',
     //  title: 'Configurações',
       headerShown: false,
+    
       
     }
   }
@@ -109,7 +112,7 @@ const bottomTab = createBottomTabNavigator(
           <Icon name={Platform.OS === 'ios' ? 'ios-shirt':'md-shirt'} size={25} color={tintColor} />
         ),
         tabBarOptions: {
-          activeTintColor: '#FF3578',
+          activeTintColor: colors.category,
         }
 
       }
@@ -123,7 +126,7 @@ const bottomTab = createBottomTabNavigator(
           <Icon name={Platform.OS === 'ios' ? 'ios-business':'md-business'} size={25} color={tintColor} />
         ),
         tabBarOptions: {
-          activeTintColor: '#0875C7',
+          activeTintColor: colors.stores,
         }
       }
     },
@@ -136,7 +139,7 @@ const bottomTab = createBottomTabNavigator(
           <Icon name={Platform.OS === 'ios' ? 'ios-construct':'md-construct'} size={25} color={tintColor} />
         ),
         tabBarOptions: {
-          activeTintColor: '#FF9E33'
+          activeTintColor: colors.services
         }
         
       }
@@ -150,7 +153,7 @@ const bottomTab = createBottomTabNavigator(
           <Icon name={Platform.OS === 'ios' ? 'ios-settings':'md-settings'} size={25} color={tintColor} />
         ),
         tabBarOptions: {
-          activeTintColor: '#8e4B72A',
+          activeTintColor: colors.settings,
         }
       }
     },
