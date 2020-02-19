@@ -110,7 +110,7 @@ const SettingsStack = createStackNavigator(
   }
 )
 
-const bottomTab = createBottomTabNavigator(
+const BottomTab = createBottomTabNavigator(
   {
     Categorias: {
       screen: CategoryStack,
@@ -197,7 +197,7 @@ function handleFinishLoading(setLoadingComplete) {
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
-  const AppContainer = createAppContainer(bottomTab)
+  const AppContainer = createAppContainer(BottomTab)
 
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
