@@ -2,6 +2,7 @@ const colors = {
     primary: '#5993FF',
     secondary: '#ecedee',
     tertiary: '#a8a8a8',
+    quartenary: '#5E94FA',
     
   
 };

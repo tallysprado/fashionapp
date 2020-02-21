@@ -161,9 +161,7 @@ const BottomTab = createBottomTabNavigator(
       //inactiveTintColor: 'gray',
       showIcon: true,
       showLabel: false,
-      headerStyle: {
-        backgroundColor: '#000'
-      },
+      
       style: {
         position: 'absolute', 
         borderRadius: 60,
@@ -171,6 +169,9 @@ const BottomTab = createBottomTabNavigator(
         width: '90%',
         alignSelf: 'center',
         borderColor: 'transparent',
+        borderTopColor: 'white',
+        
+
         
       }
     }

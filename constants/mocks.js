@@ -58,6 +58,7 @@ const products = [
         bio: 'Com bolinhas rosadas e cores amarelas, ela é perfeita para o verão',
         offert: 15,
         price: 99,
+        sells: 20,
     },
 
     {
@@ -68,6 +69,7 @@ const products = [
         bio: 'Com bolinhas rosadas e cores amarelas, ela é perfeita para o verão',
         offert: 10,
         price: 99,
+        sells: 15,
 
 
     },
@@ -80,6 +82,7 @@ const products = [
         bio: 'Com bolinhas rosadas e cores amarelas, ela é perfeita para o verão',
         offert: 5,
         price: 99,
+        sells: 22,
 
 
     },

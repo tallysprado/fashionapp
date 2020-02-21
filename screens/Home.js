@@ -10,12 +10,12 @@ import {BlurView} from 'expo-blur'
 import {data} from '../constants/mocks'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-import Offerts from '../components/Offerts'
+import HomeContent from '../components/HomeContent'
 
 
 export default Home = ({navigation}) => {
     return(
-        <Offerts  />
+        <HomeContent />
     )
 }
 
