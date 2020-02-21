@@ -11,7 +11,7 @@ import {createAppContainer} from 'react-navigation'
 import {createBottomTabNavigator} from 'react-navigation-tabs'
 import {createStackNavigator} from 'react-navigation-stack'
 
-import Category from './screens/Category'
+import Home from './screens/Home'
 import Settings from './screens/Settings'
 import Lojas from './screens/Lojas'
 import Services from './screens/Services'
@@ -36,7 +36,7 @@ const SearchIcon = () => {
 const CategoryStack = createStackNavigator(
   {
     Categorias: {
-      screen: Category,
+      screen: Home,
       
     },
     Itens: {  
@@ -53,7 +53,6 @@ const CategoryStack = createStackNavigator(
       headerTitleStyle: {
         fontWeight: '600'
       }, 
-      headerTintColor: colors.category,
       
       headerShown: true,
       headerRight: <SearchIcon/>
@@ -115,55 +114,42 @@ const BottomTab = createBottomTabNavigator(
     Categorias: {
       screen: CategoryStack,
       navigationOptions: {
-        tabBarLabel: 'Categorias',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon name={Platform.OS === 'ios' ? 'ios-shirt':'md-shirt'} size={25} color={tintColor} />
+        tabBarIcon: ({focused}) =>(
+          <Icon name={Platform.OS === 'ios' ? 'ios-shirt':'md-shirt'} size={25} color={focused?colors.primary:colors.secondary} />
         ),
-        tabBarOptions: {
-          activeTintColor: colors.category,
-        }
-
-      }
+      
+      },
+      
     },
 
     Lojas: {
       screen: LojasStack,
       navigationOptions: {
-        tabBarLabel: 'Lojas',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon name={Platform.OS === 'ios' ? 'ios-business':'md-business'} size={25} color={tintColor} />
+        tabBarIcon: ({focused}) =>(
+          <Icon name={Platform.OS === 'ios' ? 'ios-business':'md-business'} size={25} color={focused?colors.primary:colors.secondary} />
         ),
-        tabBarOptions: {
-          activeTintColor: colors.stores,
-        }
-      }
+      
+      },
     },
 
     Services: {
       screen: ServicesStack,
       navigationOptions: {
-        tabBarLabel: 'Serviços',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon name={Platform.OS === 'ios' ? 'ios-construct':'md-construct'} size={25} color={tintColor} />
+        tabBarIcon: ({focused})=>(
+          <Icon name={Platform.OS === 'ios' ? 'ios-cart':'md-cart'} size={25} color={focused?colors.primary:colors.secondary} />
         ),
-        tabBarOptions: {
-          activeTintColor: colors.services
-        }
-        
-      }
+      
+      },
     },
 
     Settings: {
       screen: SettingsStack,
       navigationOptions: {
-        tabBarLabel: 'Configurações',
-        tabBarIcon: ({ tintColor, focused }) => (
-          <Icon name={Platform.OS === 'ios' ? 'ios-settings':'md-settings'} size={25} color={tintColor} />
+        tabBarIcon: ({focused}) => (
+          <Icon name={Platform.OS === 'ios' ? 'ios-settings':'md-settings'} size={25} color={focused?colors.primary:colors.secondary} />
         ),
-        tabBarOptions: {
-          activeTintColor: colors.settings,
-        }
-      }
+      
+      },
     },
   },
   {
@@ -171,6 +157,17 @@ const BottomTab = createBottomTabNavigator(
       //activeTintColor: '',
       //inactiveTintColor: 'gray',
       showIcon: true,
+      showLabel: false,
+      
+      style: {
+        position: 'absolute', 
+        borderRadius: 60,
+        bottom: 20,
+        width: '90%',
+        alignSelf: 'center',
+        borderColor: 'transparent',
+
+      }
     }
   }
 )
@@ -179,9 +176,10 @@ async function loadResourcesAsync() {
   await Promise.all([
     Font.loadAsync({
       'PlayfairDisplay-Regular': require('./assets/fonts/PlayfairDisplay-Regular.otf'),
-      'SourceSansPro-': require('./assets/fonts/SourceSansPro-Regular.ttf'),
+      'SourceSansPro': require('./assets/fonts/SourceSansPro-Regular.ttf'),
       'Raleway-Bold': require('./assets/fonts/Raleway-Bold.ttf'),
       'SourceSansPro-Light': require('./assets/fonts/SourceSansPro-Light.ttf'),
+      'SourceSansPro-Bold': require('./assets/fonts/SourceSansPro-Bold.ttf')
     }),
   ]);
 }
