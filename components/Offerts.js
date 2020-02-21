@@ -37,35 +37,44 @@ export default Offerts = () => {
     }
 
     return(
-        <View style={styles.contentContainer} >
-            <Text style={styles.offersTittle} > Ofertas </Text>
+            <View style={styles.contentContainer} >
+                <Text style={styles.offersTittle} > Ofertas </Text>
 
-            <FlatList
-                data={dataState}
-                style={styles.flatList}
-                horizontal={true}
-                renderItem={renderItem}
-                showsHorizontalScrollIndicator = {false}
-                
-            />   
+                <FlatList
+                    data={dataState}
+                    style={styles.flatList}
+                    horizontal={true}
+                    renderItem={renderItem}
+                    showsHorizontalScrollIndicator = {false}
+                    
+                />   
 
-        </View>
+            </View>
     )
 }
 
 const styles = StyleSheet.create({
     contentContainer: {
         top: 20,
+        backgroundColor: colors.secondary,
+        height: '100%',
+        top: 100,
+    },
+    contentContainer2: {
+        top: 80,
+        backgroundColor: '#000'
     },
     offersTittle: {
         fontSize: 30,
         fontWeight: '500',
         left: 20,
-        color: colors.secondary,
+        color: colors.tertiary,
         fontFamily: 'SourceSansPro-Bold',
     },
     flatList: {
         margin: 1,
+
+        
     },
     itemContainer: {
         flex: 1,

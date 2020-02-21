@@ -15,13 +15,14 @@ import Offerts from '../components/Offerts'
 
 export default Home = ({navigation}) => {
     return(
-        <Offerts/>
+        <Offerts  />
     )
 }
 
 
 
 const styles = StyleSheet.create({
+    
     itemContainer: {
         flex: 1,
         flexDirection: 'column',
