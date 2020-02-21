@@ -38,6 +38,7 @@ export default Offerts = () => {
 
     return(
             <View style={styles.contentContainer} >
+            <View style={styles.contentContainer2} >
                 <Text style={styles.offersTittle} > Ofertas </Text>
 
                 <FlatList
@@ -48,7 +49,7 @@ export default Offerts = () => {
                     showsHorizontalScrollIndicator = {false}
                     
                 />   
-
+                </View>
             </View>
     )
 }
@@ -58,11 +59,10 @@ const styles = StyleSheet.create({
         top: 20,
         backgroundColor: colors.secondary,
         height: '100%',
-        top: 100,
     },
     contentContainer2: {
         top: 80,
-        backgroundColor: '#000'
+        backgroundColor: colors.secondary
     },
     offersTittle: {
         fontSize: 30,
