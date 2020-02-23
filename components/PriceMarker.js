@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import {colors} from '../constants/themes'
 
-export default PriceMarker = ({offert, price}) => {
+export default PriceMarker = ({offert, price, name}) => {
     return(
         <View style={styles.contentContainer} >
         
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     priceContainer: {
         alignItems: 'flex-start',
         position: 'absolute',
-        top: 190,
+        top: 160,
         left: 10,
     },
     priceText: {

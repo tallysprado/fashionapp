@@ -26,7 +26,7 @@ renderItem = ({item}) => {
 
                     </BlurView>
                     */}
-                    <PriceMarker  offert={item.offert} price={item.price} />
+                    <PriceMarker  offert={item.offert} price={item.price} name={item.name} />
                 </ImageBackground>
             
             </TouchableOpacity>
@@ -91,6 +91,7 @@ export default HomeContent = () => {
 const styles2 = StyleSheet.create({
     contentContainer: {
         height: 280,
+        top: 100,
     },
     tittle: {
         fontSize: 30,
@@ -103,9 +104,10 @@ const styles2 = StyleSheet.create({
 
 const styles = StyleSheet.create({
     contentContainer: {
-        top: 20,
+        top: 50,
         backgroundColor: colors.secondary,
         resizeMode: "contain",
+
 
     },
     contentContainer2: {
@@ -124,19 +126,20 @@ const styles = StyleSheet.create({
     },
     flatList: {
         margin: 1,
+        height: 150,
         
     },
     itemContainer: {
-        flex: 1,
         flexDirection: 'column',
-        borderRadius: 20,
         margin: 5,
-
+        
     },
     imageItem: {
-        resizeMode: "center",
+        resizeMode: 'cover',
+        borderRadius:30,
+        overflow: 'hidden',
         width: 200, 
-        height: 230,
+        height: 200,
         marginTop: 5,
         marginBottom: 5,
     },
