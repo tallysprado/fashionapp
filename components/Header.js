@@ -20,9 +20,9 @@ const Header = ({title}) => {
         <View style={styles.contentContainer} >
 
                 <View style={styles.searchBar} >
-                    <TouchableOpacity >
-                        <Icon name={Platform.OS==='ios'?'ios-search':'md-search'} style={styles.searchIcon} size={36} />
-                    </TouchableOpacity>
+                    
+                    <Icon name={Platform.OS==='ios'?'ios-search':'md-search'} style={styles.searchIcon} size={36} />
+                    
 
                     <TextInput
                     style ={styles.textInput}
@@ -57,9 +57,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     textInput: {
-        left: -40,
-        top: 2,
+
         fontSize: 20,
+        flex: 1,
     },
     filtersButton: {
         backgroundColor: colors.quartenary,
@@ -96,9 +96,9 @@ const styles = StyleSheet.create({
         
     },
     searchIcon: {
-        left: -50,
-        
-        top: 8,
+        flex: 0.2,
+        left: 15,
+        top: 7.5,
         color: colors.primary
     },
     text: {
