@@ -25,9 +25,7 @@ const Header = ({title}) => {
                     </TouchableOpacity>
 
                     <TextInput
-                    style ={{
-
-                    }}
+                    style ={styles.textInput}
                     placeholder={'Buscar em Fortaleza'}
                     onChangeText={(text)=>dispatch({type: 'SEARCH', title: text})}
                     
@@ -58,6 +56,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    textInput: {
+        left: -40,
+        top: 2,
+        fontSize: 20,
+    },
     filtersButton: {
         backgroundColor: colors.quartenary,
         position: 'absolute',
@@ -84,16 +87,18 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(255,254,248, 1)',
         borderRadius: 40,
         position: 'absolute',
+        flexDirection: 'row',
         shadowColor: '#000',
         shadowOffset: {width: 1, height: 1},
         shadowRadius: 3,
         shadowOpacity: 0.15,
-        justifyContent: 'center'
+        
         
     },
     searchIcon: {
-        left: 15,
-        top: 2.5,
+        left: -50,
+        
+        top: 8,
         color: colors.primary
     },
     text: {

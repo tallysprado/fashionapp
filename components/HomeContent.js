@@ -100,10 +100,11 @@ const [dataState, setData] = useState(products)
 
 
 const ResultSearch = (text)=> {
-    
+    var string = text.text[0].toUpperCase()
+    console.log(string)
     const [dataState, setData] = useState(products)
     const filtered = dataState.filter(item => {
-        if(item.name.includes(text)) return item
+        if(item.name.includes(string)) return item
     })
     
     return(
@@ -124,7 +125,7 @@ const ResultSearch = (text)=> {
 export default HomeContent = ({navigation}) => {
     
     const query = useSelector(state => state.query)
-
+    
     if(query!=''){
         return(
             <ResultSearch text={query} />
