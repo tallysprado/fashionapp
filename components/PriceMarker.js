@@ -19,6 +19,8 @@ export default PriceMarker = ({offert, price, name}) => {
             <View style={styles.priceContainer}>
                 <Text style={styles.priceText} >R${price}</Text>
             </View>
+
+            
         </View>
     )
 }

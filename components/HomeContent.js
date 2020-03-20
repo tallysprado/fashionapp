@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {View, StyleSheet, Text, FlatList, ImageBackground, TouchableOpacity} from 'react-native'
+import {View ,StyleSheet, Animated,Text, FlatList, ImageBackground, TouchableOpacity, ScrollView} from 'react-native'
 
 import {products} from '../constants/mocks'
 import {data} from '../constants/mocks'
@@ -8,6 +8,8 @@ import {colors} from '../constants/themes'
 import {BlurView} from 'expo-blur'
 
 import PriceMarker from './PriceMarker'
+
+import {useSelector} from 'react-redux'
 
 
 
@@ -27,6 +29,7 @@ renderItem = ({item}) => {
                     </BlurView>
                     */}
                     <PriceMarker  offert={item.offert} price={item.price} name={item.name} />
+
                 </ImageBackground>
             
             </TouchableOpacity>
@@ -36,11 +39,10 @@ renderItem = ({item}) => {
 
 const Offerts = () => {
     
-    const [dataState, setData] = useState(products)
+    const [dataState, setData] =  useState(products)
     
     return( 
         <View style={styles.contentContainer} >
-            <View style={styles.contentContainer2} >
                 <Text style={styles.offersTittle} > Ofertas </Text>
 
                 <FlatList
@@ -51,8 +53,27 @@ const Offerts = () => {
                     showsHorizontalScrollIndicator = {false}
                     
                 />   
-                </View>
-            </View>
+        </View>
+    )
+}
+
+const MostLike = () => {
+    
+    const [dataState, setData] = useState(products)
+    
+    return( 
+        <View style={styles.contentContainer} >
+                <Text style={styles.offersTittle} > Mais Curtidos    </Text>
+
+                <FlatList
+                    data={dataState}
+                    style={styles.flatList}
+                    horizontal={true}
+                    renderItem={renderItem}
+                    showsHorizontalScrollIndicator = {false}
+                    
+                />   
+        </View>
     )
 }
 
@@ -76,21 +97,59 @@ const [dataState, setData] = useState(products)
     )
 }
 
-export default HomeContent = () => {
+
+
+const ResultSearch = (text)=> {
+    
+    const [dataState, setData] = useState(products)
+    const filtered = dataState.filter(item => {
+        if(item.name.includes(text)) return item
+    })
     
     return(
-        <View style={{backgroundColor: colors.secondary}}>
+        <View style={styles2.contentContainer} >
+            <Text style={styles2.tittle}>Resultado da Busca</Text>
+            <FlatList
+                data={filtered}
+                style={styles.flatList}
+                horizontal={true}
+                renderItem={renderItem}
+                showsHorizontalScrollIndicator={false}
+            />
 
-            <MostPurchased/>
-            <Offerts/>
-            
         </View>
     )
 }
 
+export default HomeContent = ({navigation}) => {
+    
+    const query = useSelector(state => state.query)
+
+    if(query!=''){
+        return(
+            <ResultSearch text={query} />
+        )
+    }
+    else{
+        return(
+            <ScrollView 
+            
+                style={{backgroundColor: colors.secondary}}>
+
+
+
+                <MostPurchased/>
+                <Offerts/>
+                <MostLike/>
+                
+            </ScrollView>
+        )
+    }
+}
+
 const styles2 = StyleSheet.create({
     contentContainer: {
-        height: 280,
+        height: 350,
         top: 100,
     },
     tittle: {
@@ -104,7 +163,7 @@ const styles2 = StyleSheet.create({
 
 const styles = StyleSheet.create({
     contentContainer: {
-        top: 50,
+        top: 30,
         backgroundColor: colors.secondary,
         resizeMode: "contain",
 
@@ -113,7 +172,7 @@ const styles = StyleSheet.create({
     contentContainer2: {
         top: 80,
         backgroundColor: colors.secondary,
-        height: '100%'
+        height: '100%',
 
     },
     offersTittle: {
@@ -126,7 +185,7 @@ const styles = StyleSheet.create({
     },
     flatList: {
         margin: 1,
-        height: 150,
+
         
     },
     itemContainer: {
@@ -139,7 +198,7 @@ const styles = StyleSheet.create({
         borderRadius:30,
         overflow: 'hidden',
         width: 200, 
-        height: 200,
+        height: 225,
         marginTop: 5,
         marginBottom: 5,
     },

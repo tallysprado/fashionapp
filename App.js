@@ -23,7 +23,15 @@ import {colors} from './constants/themes'
 
 import Header from './components/Header'
 
+import {Provider} from 'react-redux'
+
+
+import store from './store'
+
 const SearchIcon = () => {
+  
+  
+  
   return(
     <View style={{paddingRight: 10, position: 'absolute', hidden: 'overflow'}} >
       
@@ -214,7 +222,9 @@ export default function App(props) {
     );
   }else{
     return(
-      <AppContainer/>
+        <Provider store={store}>
+          <AppContainer/>
+        </Provider>
     )
   }
 }

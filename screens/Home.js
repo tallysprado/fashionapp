@@ -15,7 +15,9 @@ import HomeContent from '../components/HomeContent'
 
 export default Home = ({navigation}) => {
     return(
-        <HomeContent />
+
+        <HomeContent navigation={navigation}/>
+
     )
 }
 

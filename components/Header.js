@@ -1,18 +1,40 @@
-import React from 'react'
-import {View, StyleSheet, Platform, TouchableOpacity} from 'react-native'
+import React, {useState} from 'react'
+import {View, StyleSheet, Platform, TouchableOpacity, TextInput} from 'react-native'
 import { colors } from '../constants/themes'
 
 import Icon from 'react-native-vector-icons/Ionicons'
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+import {useDispatch} from 'react-redux'
+
+
+
 const Header = ({title}) => {
+
+    const dispatch = useDispatch()
+    
+
+     
+
     return(
         <View style={styles.contentContainer} >
 
                 <View style={styles.searchBar} >
-                    <Icon name={Platform.OS==='ios'?'ios-search':'md-search'} style={styles.searchIcon} size={36} />
+                    <TouchableOpacity >
+                        <Icon name={Platform.OS==='ios'?'ios-search':'md-search'} style={styles.searchIcon} size={36} />
+                    </TouchableOpacity>
+
+                    <TextInput
+                    style ={{
+
+                    }}
+                    placeholder={'Buscar em Fortaleza'}
+                    onChangeText={(text)=>dispatch({type: 'SEARCH', title: text})}
+                    
+                />
+
                 </View>
- 
+               
                 <TouchableOpacity style={styles.filtersButton}>
                     <MaterialIcon size={36} name='filter' style={styles.filterIcon} /> 
                 </TouchableOpacity>
@@ -20,7 +42,12 @@ const Header = ({title}) => {
         </View>
 
     )
+
 }
+
+
+
+
 
 export default Header
 
