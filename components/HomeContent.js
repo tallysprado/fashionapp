@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import {View ,StyleSheet, Animated,Text, FlatList, ImageBackground, TouchableOpacity, ScrollView} from 'react-native'
+import {View ,StyleSheet, Image,Text, FlatList, ImageBackground, TouchableOpacity, ScrollView} from 'react-native'
 
 import {products} from '../constants/mocks'
-import {data} from '../constants/mocks'
+import {data, categories} from '../constants/mocks'
 import {colors} from '../constants/themes'
 
 import {BlurView} from 'expo-blur'
@@ -34,6 +34,24 @@ renderItem = ({item}) => {
             
             </TouchableOpacity>
         </View>
+    )
+}
+
+const Category = () => {
+    
+    
+    return(
+        
+        <FlatList
+            showsHorizontalScrollIndicator={false}
+            horizontal={true}
+            data={categories}
+            renderItem={({item})=>(
+                <TouchableOpacity>
+                    <Image style={styles.categoryItem} source={item.img} />
+                </TouchableOpacity>
+            )}
+        />
     )
 }
 
@@ -133,17 +151,17 @@ export default HomeContent = ({navigation}) => {
     }
     else{
         return(
-            <ScrollView 
-            
-                style={{backgroundColor: colors.secondary}}>
-
-
-
-                <MostPurchased/>
-                <Offerts/>
-                <MostLike/>
+            <View style={{top:90, backgroundColor: colors.secondary}}>
+                <ScrollView 
                 
-            </ScrollView>
+                    style={{backgroundColor: colors.secondary}}>
+                    
+                    <MostPurchased/>
+                    <Offerts/>
+                    <MostLike/>
+                    
+                </ScrollView>
+                </View>
         )
     }
 }
@@ -151,7 +169,6 @@ export default HomeContent = ({navigation}) => {
 const styles2 = StyleSheet.create({
     contentContainer: {
         height: 350,
-        top: 100,
     },
     tittle: {
         fontSize: 30,
@@ -167,8 +184,14 @@ const styles = StyleSheet.create({
         top: 30,
         backgroundColor: colors.secondary,
         resizeMode: "contain",
-
-
+    },
+    categoryItem: {
+        width: 48,
+        height: 48,
+        margin: 10,
+    },
+    categoryView: {
+        top: 100,
     },
     contentContainer2: {
         top: 80,

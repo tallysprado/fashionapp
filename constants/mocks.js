@@ -88,8 +88,59 @@ const products = [
     },
 ]
 
+const categories = [
+    {
+        key: 1,
+        img: require('../assets/icons/pants.png')
+    },
+    {
+        key: 2,
+        img: require('../assets/icons/beach.png')
+    },
+    {
+        key: 3,
+        img: require('../assets/icons/capre.png')
+    },
+    {
+        key: 4,
+        img: require('../assets/icons/dress.png')
+    },
+    {
+        key: 5,
+        img: require('../assets/icons/skirt.png')
+    },
+    {
+        key: 6,
+        img: require('../assets/icons/socks.png')
+    },
+    {
+        key: 7,
+        img: require('../assets/icons/casual.png')
+    },
+    {
+        key: 8,
+        img: require('../assets/icons/moletom.png')
+    },
+    {
+        key: 9,
+        img: require('../assets/icons/shirt.png')
+    },
+    {
+        key: 10,
+        img: require('../assets/icons/swimsuit.png')
+    },
+    {
+        key: 11,
+        img: require('../assets/icons/pants.png')
+    },
+    {
+        key: 12,
+        img: require('../assets/icons/clothes.png')
+    },
+]
+
 export {
     data,
     products,
-    
+    categories,   
 }

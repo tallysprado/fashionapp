@@ -58,13 +58,13 @@ const CategoryStack = createStackNavigator(
   },
   {
     defaultNavigationOptions: {
-      headerTitleStyle: {
-        fontWeight: '600',
-        backgroundColor: colors.secondary
-      }, 
+      cardStyle: {
+        backgroundColor: colors.secondary,
+      },
       
-      headerShown: true,
-      header: <Header/>
+       
+      header: <Header/>,
+      
 
     }
   }

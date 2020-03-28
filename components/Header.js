@@ -10,12 +10,9 @@ import {useDispatch} from 'react-redux'
 
 
 const Header = ({title}) => {
-
+    
     const dispatch = useDispatch()
     
-
-     
-
     return(
         <View style={styles.contentContainer} >
 
@@ -51,6 +48,7 @@ export default Header
 
 const styles = StyleSheet.create({
     contentContainer: {
+        backgroundColor: '#000',
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
@@ -62,7 +60,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     filtersButton: {
-        backgroundColor: colors.quartenary,
+        backgroundColor: colors.primary,
         position: 'absolute',
         top: 40,
         right: 10,

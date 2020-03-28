@@ -23,18 +23,19 @@ export default Settings = ({navigation}) =>{
     }
     return(
         <FlatGrid
-        itemDimension={130}
-        items={items}
-        style={styles.gridView}
-        // staticDimension={300}
-        // fixed
-        // spacing={20}
-        renderItem={({ item, index }) => (
-        <View style={[styles.itemContainer, { backgroundColor: themes.colors.primary }]}>
-            <Text style={styles.itemName}>{item.name}</Text>
-            <Text style={styles.itemCode}>{item.code}</Text>
-        </View>
-        )}
+            itemDimension={130}
+            items={items}
+            style={styles.gridView}
+            // staticDimension={300}
+            // fixed
+            // spacing={20}
+            renderItem={({ item, index }) => 
+            (
+                <View style={[styles.itemContainer, { backgroundColor: themes.colors.primary }]}>
+                    <Text style={styles.itemName}>{item.name}</Text>
+                    <Text style={styles.itemCode}>{item.code}</Text>
+                </View>
+            )}
     />
 )
 
