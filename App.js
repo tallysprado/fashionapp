@@ -103,6 +103,7 @@ const SettingsStack = createStackNavigator(
   {
     Settings: {
       screen: Settings,
+      params: {type: 'seller'}
     }
   },
   {
