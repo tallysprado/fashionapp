@@ -1,10 +1,17 @@
 const colors = {
-    primary: '#5993FF',
+    primary: '#de3224',
     secondary: '#ecedee',
     tertiary: '#a8a8a8',
     quartenary: '#5E94FA',
     
   
+}
+
+const colors3 = {
+    primary: '#5993FF',
+    secondary: '#ecedee',
+    tertiary: '#a8a8a8',
+    quartenary: '#5E94FA',
 };
 
 const colors2 = {
