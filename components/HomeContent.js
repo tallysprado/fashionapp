@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {View ,StyleSheet, Image,Text, FlatList, ImageBackground, TouchableOpacity, ScrollView} from 'react-native'
+import {View ,StyleSheet, Animated, Image,Text, FlatList, ImageBackground, TouchableOpacity, ScrollView, Keyboard} from 'react-native'
 
 import {products} from '../constants/mocks'
 import {data, categories} from '../constants/mocks'
@@ -9,8 +9,9 @@ import {BlurView} from 'expo-blur'
 
 import PriceMarker from './PriceMarker'
 
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 
+import {FlatGrid} from 'react-native-super-grid'
 
 
 renderItem = ({item}) => {
@@ -124,6 +125,10 @@ const ResultSearch = (text)=> {
     const filtered = dataState.filter(item => {
         if(item.name.includes(string)) return item
     })
+
+    if(string==''){
+        Keyboard.dismiss()
+    }
     
     return(
         <View style={styles2.contentContainer} >
@@ -143,7 +148,30 @@ const ResultSearch = (text)=> {
 export default HomeContent = ({navigation}) => {
     
     const query = useSelector(state => state.query)
+    const dispatch = useDispatch()
+    const filters = useSelector(state => state.filters[0])
+
+    const [fadeAnim] = useState(new Animated.Value(0))
+    console.log(filters)
+    if(filters===true){
+        Animated.spring(
+            fadeAnim,
+            {
+                toValue: 0,
+                speed: 100,
+            }
+        ).start()
+    }else{
+        Animated.spring(
+            fadeAnim,
+            {
+                toValue: -500,
+                speed: 2,
+            }
+        ).start()
+    }
     
+
     if(query!=''){
         return(
             <ResultSearch text={query} />
@@ -153,9 +181,13 @@ export default HomeContent = ({navigation}) => {
         return(
             <View style={{top:90, backgroundColor: colors.secondary}}>
                 <ScrollView 
-                
+                    
                     style={{backgroundColor: colors.secondary}}>
                     
+
+                    <Animated.View style={[styles2.filtersContainer,{top: fadeAnim}]}>
+                        <Filters/>
+                    </Animated.View>
                     <MostPurchased/>
                     <Offerts/>
                     <MostLike/>
@@ -166,9 +198,51 @@ export default HomeContent = ({navigation}) => {
     }
 }
 
+const Filters = () => {
+    
+    const dispatch = useDispatch()
+
+    
+
+    return(
+        <FlatGrid
+        itemDimension={50}
+        items={categories}
+        style={styles.gridView}
+        // staticDimension={300}
+        // fixed
+        // spacing={20}
+        renderItem={({ item, index }) => (
+          <View style={styles2.itemContainer}>
+            <Image style={{height: 48, resizeMode: 'contain'}} source={item.img} />
+          </View>
+        )}
+      />
+    )
+}
+
+
 const styles2 = StyleSheet.create({
+    gridView: {
+        marginTop: 20,
+        flex: 1,
+      },
+    itemContainer: {
+        height: 50
+    },
+    
+    filtersContainer: {
+        
+        zIndex: 1,
+        flex: 1,
+        width: '100%',
+        height: 130,
+        backgroundColor: colors.secondary,
+        position: 'absolute',
+        
+    },
     contentContainer: {
-        height: 350,
+        height: 300
     },
     tittle: {
         fontSize: 30,
@@ -181,7 +255,6 @@ const styles2 = StyleSheet.create({
 
 const styles = StyleSheet.create({
     contentContainer: {
-        top: 30,
         backgroundColor: colors.secondary,
         resizeMode: "contain",
     },
@@ -194,7 +267,7 @@ const styles = StyleSheet.create({
         top: 100,
     },
     contentContainer2: {
-        top: 80,
+        top: 0,
         backgroundColor: colors.secondary,
         height: '100%',
 

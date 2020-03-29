@@ -23,7 +23,7 @@ import {colors} from './constants/themes'
 
 import Header from './components/Header'
 
-import {Provider} from 'react-redux'
+import {Provider, useSelector} from 'react-redux'
 
 
 import store from './store'
@@ -41,7 +41,9 @@ const SearchIcon = () => {
   )
 }
 
+
 const CategoryStack = createStackNavigator(
+  
   {
     Categorias: {
       screen: Home,

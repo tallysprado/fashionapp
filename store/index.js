@@ -1,9 +1,8 @@
 import {createStore} from 'redux'
 
-
 const INITIAL_STATE = {
     query: '',
-    action: false,
+    filters: false,
 }
 
 function search(state = INITIAL_STATE, action){
@@ -14,9 +13,9 @@ function search(state = INITIAL_STATE, action){
 
             //retornará apenas o último valor inserido no state
             return {...state, query: [action.title]}
-        case 'ACTION':
-            return {...state, action: [...state.query, action.title]}
-        
+        case 'FILTERS':
+            return {...state, filters: [action.title]}
+
             default:
             return state
     }
