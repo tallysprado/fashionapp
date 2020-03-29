@@ -126,12 +126,10 @@ const ResultSearch = (text)=> {
         if(item.name.includes(string)) return item
     })
 
-    if(string==''){
-        Keyboard.dismiss()
-    }
+    
     
     return(
-        <View style={styles2.contentContainer} >
+        <View style={[{top:90}, styles2.contentContainer]} >
             <Text style={styles2.tittle}>Resultado da Busca</Text>
             <FlatList
                 data={filtered}
@@ -248,6 +246,7 @@ const styles2 = StyleSheet.create({
         fontSize: 30,
         fontWeight: '500',
         left: 20,
+        
         color: colors.tertiary,
         fontFamily: 'SourceSansPro-Bold',
     },
