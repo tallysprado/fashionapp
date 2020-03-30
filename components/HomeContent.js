@@ -126,10 +126,9 @@ const ResultSearch = (text)=> {
         if(item.name.includes(string)) return item
     })
 
-    
-    
     return(
-        <View style={[{top:90}, styles2.contentContainer]} >
+        
+        <View style={styles2.contentContainer} >
             <Text style={styles2.tittle}>Resultado da Busca</Text>
             <FlatList
                 data={filtered}
@@ -172,7 +171,12 @@ export default HomeContent = ({navigation}) => {
 
     if(query!=''){
         return(
-            <ResultSearch text={query} />
+            <View style={{top: 90}}>
+                <Animated.View style={[styles2.filtersContainer,{top: fadeAnim}]}>
+                    <Filters/>
+                </Animated.View>
+                <ResultSearch text={query} />
+            </View>
         )
     }
     else{
