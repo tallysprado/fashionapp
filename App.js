@@ -15,6 +15,8 @@ import Home from './screens/Home'
 import Settings from './screens/Settings'
 import Lojas from './screens/Lojas'
 import Services from './screens/Services'
+import Produtos from './screens/ProdutosVendedor'
+import CadastrarProdutos from './screens/CadastrarProdutos'
 
 import Products from './screens/Products'
 import Product from './screens/Product'
@@ -105,8 +107,16 @@ const SettingsStack = createStackNavigator(
   {
     Settings: {
       screen: Settings,
-      params: {type: 'seller'}
+      params: {type: 'seller'},
+      
+    },
+    Produtos: {
+      screen: Produtos,
+    },
+    CadastrarProdutos: {
+      screen: CadastrarProdutos,
     }
+    
   },
   {
     defaultNavigationOptions: {

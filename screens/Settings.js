@@ -11,7 +11,7 @@ export default Settings = ({navigation}) =>{
     const type = navigation.getParam('type');
     if(type==='seller'){
         items = [
-            { name: 'INFORMAÇÕES', code: 'Perfil da loja' }, { name: 'PRODUTOS', code: 'Cadastrar e remover itens' },
+            { name: 'INFORMAÇÕES', code: 'Perfil da loja' }, { name: 'Produtos', code: 'Cadastrar e remover itens' },
             { name: 'RELATÓRIOS', code: 'Vendas, curtidas e comentários' }, { name: 'Ajuda', code: 'Guia passo a passo' },
         ];
     }
@@ -31,10 +31,12 @@ export default Settings = ({navigation}) =>{
             // spacing={20}
             renderItem={({ item, index }) => 
             (
+            <TouchableOpacity onPress={()=>{navigation.navigate(item.name)}}>
                 <View style={[styles.itemContainer, { backgroundColor: themes.colors.primary }]}>
-                    <Text style={styles.itemName}>{item.name}</Text>
+                    <Text style={styles.itemName}>{item.name.toUpperCase()}</Text>
                     <Text style={styles.itemCode}>{item.code}</Text>
                 </View>
+            </TouchableOpacity>
             )}
     />
 )
