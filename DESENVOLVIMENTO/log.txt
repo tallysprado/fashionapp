@@ -1,0 +1,13 @@
+## LOG DE DESENVOLVIMENTO ## 
+
+#01 - Cadastrar Produtos atualizado com as configurações da câmera, utilizando o módulo 'expo-camera', tem que avaliar se este módulo funcionará corretamente na compilação do executável final, pois há outro módulo 'react-native-camera' que usa o 'react-native-permissions', porém este deve ser linkado manualmente no Podlist e depois recompilado. Só que por enquanto está tendo uns bugs no comando "pod install" pra atualizar as permissões de uso do hardware, no iOS pelo menos. Para resolver este problema de primeira, era só executar o mesmo comando em um MacOS pois o erro está surgindo por causa da arquitetura do sistema. Creio que há outras formas de solução, como remover os comandos que necessitam de pacotes do MacOS ou usar outro pacote de permissões ao invés do 'react-native-permissions'. 
+
+DEPENDÊNCIAS: expo-camera; 
+
+#02 - ..............................
+
+DEPENDÊNCIAS: nenhuma.
+
+#03 - ........
+
+DEPENDÊNCIAS: foda
