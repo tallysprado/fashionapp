@@ -5,7 +5,6 @@ import {products} from '../constants/mocks'
 import {data, categories} from '../constants/mocks'
 import {colors} from '../constants/themes'
 
-import {BlurView} from 'expo-blur'
 
 import PriceMarker from './PriceMarker'
 
@@ -20,15 +19,7 @@ renderItem = ({item}) => {
             <TouchableOpacity >
                 
                 <ImageBackground style={styles.imageItem} source={item.img}>
-                    {/*
-                    <BlurView style={styles.blurView} tint='default' intensity={80}>
-                        
-                        <Text style={styles.text}>
-                            {item.name}
-                        </Text>
-
-                    </BlurView>
-                    */}
+                    
                     <PriceMarker  offert={item.offert} price={item.price} name={item.name} />
 
                 </ImageBackground>

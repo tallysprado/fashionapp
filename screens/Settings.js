@@ -2,7 +2,6 @@ import React from 'react'
 import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native'
 
 import {FlatGrid} from 'react-native-super-grid'
-
 import {themes} from '../constants'
 
 
