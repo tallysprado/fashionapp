@@ -1,10 +1,8 @@
 const colors = {
-    primary: '#de3224',
+    primary: '#5993FF',
     secondary: '#ecedee',
     tertiary: '#a8a8a8',
-    quartenary: '#5E94FA',
-    
-  
+    quartenary: '#5E94FA', 
 }
 
 const colors3 = {

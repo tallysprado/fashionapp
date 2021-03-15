@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Platform } from 'react-native';
 
-import {AppLoading} from 'expo'
+import {AppLoading} from 'expo-app-loading'
 
 import * as Font from 'expo-font'
 
